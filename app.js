@@ -20,7 +20,7 @@ app.use(express.urlencoded({extended: false}));
 
 
 app.use('/', require('./controllers/main'))
-app.use('/', require('./controllers/posts'))
+app.use('/posts', require('./controllers/posts'))
 
 require('./data/db');
 

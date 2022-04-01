@@ -4,8 +4,8 @@
             <ul class="list-group">
                 {{#each posts}}
                     <li class="list-group-item">
-                        <div class="lead">{{this.title}}</div>
-                        <a href="{{this.url}}" target="_blank">{{this.url}}</a>
+                        <div class="lead"><a href="/posts/{{this._id}}" class="text-decoration-none">{{this.title}}</a></div>
+                        <small><a href="{{this.url}}" target="_blank" class="link-secondary text-decoration-none">{{this.url}}</a></small>
                     </li>
                 {{/each}}
             </ul>
