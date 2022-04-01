@@ -1,0 +1,24 @@
+{
+  "name": "reddit-js-clone",
+  "version": "1.0.0",
+  "description": "A reddit clone created in JavaScript",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jai-saw/reddit-js-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jai-saw/reddit-js-clone/issues"
+  },
+  "homepage": "https://github.com/jai-saw/reddit-js-clone#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3"
+  }
+}
