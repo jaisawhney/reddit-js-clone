@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 assert = require('assert');
 
-const url = 'mongodb://localhost/reddit-db';
-mongoose.connect(
-    url,
+const url = process.env.MONGODB_URI || 'mongodb://localhost/reddit-db';
+mongoose.connect(url,
     {
         useNewUrlParser: true
     },
