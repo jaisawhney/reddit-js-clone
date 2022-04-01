@@ -1,5 +1,4 @@
 const express = require('express')
-const bodyParser = require('body-parser');
 const app = express()
 
 const {engine} = require('express-handlebars');
@@ -16,11 +15,14 @@ app.engine('handlebars', engine({
     }
 }));
 app.set('view engine', 'handlebars');
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-app.get("/", (req, res) => {
-    res.render('home');
-});
+
+app.use('/', require('./controllers/main'))
+app.use('/', require('./controllers/posts'))
+
+require('./data/db');
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
