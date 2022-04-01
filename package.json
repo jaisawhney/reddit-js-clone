@@ -2,9 +2,9 @@
   "name": "reddit-js-clone",
   "version": "1.0.0",
   "description": "A reddit clone created in JavaScript",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,10 @@
     "express-handlebars": "^6.0.3",
     "express-validator": "^6.14.0",
     "mongoose": "^6.2.9"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.2.2"
   }
 }

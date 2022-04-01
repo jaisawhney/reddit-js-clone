@@ -1,9 +1,9 @@
 const express = require('express')
-const app = express()
+const server = express()
 
 const {engine} = require('express-handlebars');
 
-app.engine('handlebars', engine({
+server.engine('handlebars', engine({
     defaultLayout: 'main',
     helpers: {
         ifeq: (one, two, options) => {
@@ -14,17 +14,19 @@ app.engine('handlebars', engine({
         }
     }
 }));
-app.set('view engine', 'handlebars');
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+server.set('view engine', 'handlebars');
+server.use(express.json());
+server.use(express.urlencoded({extended: false}));
 
 
-app.use('/', require('./controllers/main'))
-app.use('/posts', require('./controllers/posts'))
+server.use('/', require('./controllers/main'))
+server.use('/posts', require('./controllers/posts'))
 
 require('./data/db');
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+server.listen(port, () => {
     console.log('App listening on port 3000!')
 });
+
+module.exports = server;
