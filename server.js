@@ -21,6 +21,7 @@ server.use(express.urlencoded({extended: false}));
 
 server.use('/', require('./controllers/main'))
 server.use('/posts', require('./controllers/posts'))
+server.use('/n', require('./controllers/subreddits'))
 
 require('./data/db');
 
