@@ -20,8 +20,9 @@ server.use(express.urlencoded({extended: false}));
 
 
 server.use('/', require('./controllers/main'))
-server.use('/posts', require('./controllers/posts'))
 server.use('/n', require('./controllers/subreddits'))
+server.use('/posts', require('./controllers/posts'))
+server.use('/posts/:postId/comments', require('./controllers/comments'))
 
 require('./data/db');
 
