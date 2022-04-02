@@ -3,8 +3,9 @@ const Comment = require('../models/comment');
 
 const express = require('express')
 const router = express.Router({ mergeParams: true })
+const requireLogin = require('../middleware/requireLogin');
 
-router.post('/', async (req, res) => {
+router.post('/', requireLogin, async (req, res) => {
     try {
         const comment = await new Comment(req.body);
         comment.save()

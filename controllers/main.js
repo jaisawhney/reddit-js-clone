@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get('/', async (req, res) => {
     try {
-        const posts = await Post.find({}).lean();
+        const posts = await Post.find({}).lean().populate('author');
         return res.render('posts-index', {posts})
     } catch (err) {
         console.error(err)

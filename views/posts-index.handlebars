@@ -7,10 +7,9 @@
                         <div class="lead">
                             <a href="/posts/{{this._id}}" class="text-decoration-none">{{this.title}}</a>
                         </div>
-                        <small>
-                            <a href="{{this.url}}" target="_blank"
-                               class="link-secondary text-decoration-none">{{this.url}}</a>
-                        </small>
+                        <a href="{{this.url}}" target="_blank"
+                           class="link-secondary text-decoration-none d-block">{{this.url}}</a>
+                        <p><small>{{this.author.username}}</small></p>
                         <div class="text-end">
                             <a href="/n/{{this.subreddit}}" class="text-decoration-none">{{this.subreddit}}</a>
                         </div>
