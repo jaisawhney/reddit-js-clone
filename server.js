@@ -1,9 +1,10 @@
+const cookieParser = require('cookie-parser');
 const express = require('express')
-const server = express()
+const app = express()
 
 const {engine} = require('express-handlebars');
 
-server.engine('handlebars', engine({
+app.engine('handlebars', engine({
     defaultLayout: 'main',
     helpers: {
         ifeq: (one, two, options) => {
@@ -14,21 +15,22 @@ server.engine('handlebars', engine({
         }
     }
 }));
-server.set('view engine', 'handlebars');
-server.use(express.json());
-server.use(express.urlencoded({extended: false}));
+app.set('view engine', 'handlebars');
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
 
-
-server.use('/', require('./controllers/main'))
-server.use('/n', require('./controllers/subreddits'))
-server.use('/posts', require('./controllers/posts'))
-server.use('/posts/:postId/comments', require('./controllers/comments'))
+app.use('/', require('./controllers/main'))
+app.use('/', require('./controllers/auth'))
+app.use('/n', require('./controllers/subreddits'))
+app.use('/posts', require('./controllers/posts'))
+app.use('/posts/:postId/comments', require('./controllers/comments'))
 
 require('./data/db');
 
 const port = process.env.PORT || 3000;
-server.listen(port, () => {
+app.listen(port, () => {
     console.log('App listening on port 3000!')
 });
 
-module.exports = server;
+module.exports = app;
