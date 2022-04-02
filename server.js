@@ -1,6 +1,7 @@
 const cookieParser = require('cookie-parser');
 const express = require('express')
 const app = express()
+const checkAuth = require('./middleware/checkAuth');
 
 const {engine} = require('express-handlebars');
 
@@ -15,11 +16,15 @@ app.engine('handlebars', engine({
         }
     }
 }));
+
+// Middleware
 app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(checkAuth);
 
+// Routes
 app.use('/', require('./controllers/main'))
 app.use('/', require('./controllers/auth'))
 app.use('/n', require('./controllers/subreddits'))

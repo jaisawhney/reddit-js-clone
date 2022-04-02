@@ -2,12 +2,13 @@ const Post = require('../models/post');
 
 const express = require('express')
 const router = express.Router()
+const requireLogin = require('../middleware/requireLogin');
 
-router.get('/new', (req, res) => {
+router.get('/new', requireLogin, (req, res) => {
     res.render('posts-new');
 });
 
-router.post('/new', (req, res) => {
+router.post('/new', requireLogin, (req, res) => {
     const post = new Post(req.body);
     post.save().then(() => res.redirect('/'));
 });
