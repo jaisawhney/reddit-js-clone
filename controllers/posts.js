@@ -27,10 +27,7 @@ router.post('/new', requireLogin, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id).lean().populate({
-            path: 'comments',
-            populate: {path: 'author'}
-        }).populate('author')
+        const post = await Post.findById(req.params.id).lean();
         return res.render('posts-show', {post})
     } catch (err) {
         console.error(err)
