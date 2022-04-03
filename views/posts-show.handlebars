@@ -11,7 +11,8 @@
                 </div>
             </form>
             {{#each post.comments}}
-                {{this.content}}
+                <p>{{this.content}}</p>
+                <p class="text-end"><small>{{this.author.username}}</small></p>
             {{/each}}
         </div>
     </div>

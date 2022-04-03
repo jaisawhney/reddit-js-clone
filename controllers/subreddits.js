@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get('/:subreddit', async (req, res) => {
     try {
-        const posts = await Post.find({subreddit: req.params.subreddit}).lean()
+        const posts = await Post.find({subreddit: req.params.subreddit}).lean().populate('author');
         return res.render('posts-index', {posts})
     } catch (err) {
         console.error(err)
