@@ -4,7 +4,7 @@
   "description": "A reddit clone created in JavaScript",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --exit"
+    "test": "SECRET=supersecretkey mocha --exit"
   },
   "repository": {
     "type": "git",
