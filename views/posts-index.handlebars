@@ -13,6 +13,15 @@
                         <div class="text-end">
                             <a href="/n/{{this.subreddit}}" class="text-decoration-none">{{this.subreddit}}</a>
                         </div>
+
+                        <form class="d-inline vote-up" data-id="{{this._id}}">
+                            <button type="submit" class="bi bi-hand-thumbs-up btn btn-outline-success"> Vote Up</button>
+                        </form>
+                        <p class="d-inline mx-2">{{#subtract this.upVotes.length this.downVotes.length}}{{/subtract}}</p>
+                        <form class="d-inline vote-down" data-id="{{this._id}}">
+                            <button type="submit" class="bi bi-hand-thumbs-down btn btn-outline-danger"> Vote Down
+                            </button>
+                        </form>
                     </li>
                 {{/each}}
             </ul>

@@ -8,11 +8,8 @@ const {engine} = require('express-handlebars');
 app.engine('handlebars', engine({
     defaultLayout: 'main',
     helpers: {
-        ifeq: (one, two, options) => {
-            if (one === two) {
-                return options.fn(this);
-            }
-            return options.inverse(this);
+        subtract: (one, two) => {
+            return one - two || 0
         }
     }
 }));
@@ -23,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(checkAuth);
+app.use(express.static('public'))
 
 // Routes
 app.use('/', require('./controllers/main'))
