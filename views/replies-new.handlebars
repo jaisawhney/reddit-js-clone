@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row justify-content-center mt-4">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1>Create Reply</h1>
+            <form action="/posts/{{post._id}}/comments/{{comment._id}}/replies" method="post">
+                <div class="form-group">
+                    <textarea name="content" class="form-control" id="reply-content" placeholder="Reply"></textarea>
+                </div>
+                <div class='text-end mt-2'>
+                    <button type="submit" class="btn btn-primary">Reply</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

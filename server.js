@@ -30,6 +30,7 @@ app.use('/', require('./controllers/auth'))
 app.use('/n', require('./controllers/subreddits'))
 app.use('/posts', require('./controllers/posts'))
 app.use('/posts/:postId/comments', require('./controllers/comments'))
+app.use('/posts/:postId/comments/:commentId', require('./controllers/replies'))
 
 require('./data/db');
 
